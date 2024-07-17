@@ -38,7 +38,7 @@ function NavigationMobile(): ReactElement {
       </Contentwrapper>
       <div
         ref={menuRef}
-        className={`absolute w-[70vw] bg-red-500 backdrop-blur-md px-6 z-40 top-0 h-[100dvh] transition-all ease-in-out delay-300 ${
+        className={`fixed w-[70vw] shadow-xl bg-white px-6 z-40 top-0 h-[100dvh] transition-all ease-in-out delay-300 ${
           !isOpen ? 'hidden' : 'right-0'
         }`}>
         <nav className="py-9 flex justify-end">
