@@ -6,7 +6,7 @@ import Contentwrapper from '../ContentWrapper';
 
 interface IBaseLayout {
   children: ReactNode;
-  className: string;
+  className?: string;
 }
 
 function BaseLayout({children, className}: IBaseLayout): ReactElement {

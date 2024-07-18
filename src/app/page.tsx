@@ -26,14 +26,15 @@ export default function Home() {
   const sliderSettings: SliderSettings = {
     dots: true,
     infinite: true,
-    speed: 500,
+    speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
+    autoplay: true,
   };
 
   return (
-    <BaseLayout className="">
-      <Contentwrapper className="full-width">
+    <BaseLayout>
+      <Contentwrapper>
         <div className="text-center mb-32">
           <h1 className="font-krub text-base font-semibold">
             Jay William Whittington Barrette
