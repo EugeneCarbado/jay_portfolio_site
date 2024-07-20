@@ -1,4 +1,5 @@
 import {ReactElement} from 'react';
+import Image from 'next/image';
 
 import BaseLayout from '@/components/BaseLayout';
 import Contentwrapper from '@/components/ContentWrapper';
@@ -15,16 +16,25 @@ function Work(): ReactElement {
           <p className="font-judson text-textLightGrey">Filmmaker</p>
         </div>
         <div>
-          <h2 className="font-krub text-center text-base font-semibold">
+          <h2 className="font-krub text-center text-base font-semibold mb-10">
             Commercials
           </h2>
           <div>
             {projects.map(project => (
-              <div key={project.projectName}>
-                <h2 className="font-krub text-center text-base font-semibold">
+              <div className="mb-12" key={project.projectName}>
+                <h2 className="font-krub text-center text-base font-semibold mb-4">
                   {project.projectName}
                 </h2>
-                <div></div>
+                <div className="grid gap-3 justify-center">
+                  {project.images.map(image => (
+                    <Image
+                      quality={100}
+                      key={image.alt}
+                      alt={image.alt}
+                      src={image.image}
+                    />
+                  ))}
+                </div>
               </div>
             ))}
           </div>
