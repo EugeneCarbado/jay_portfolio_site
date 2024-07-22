@@ -2,12 +2,13 @@
 
 import {ReactElement, useEffect, useRef, useState} from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import HambgerIcon from '@/images/icons/icon-hamburger.svg';
 import CloseIcon from '@/images/icons/icon-close.svg';
 
 import Contentwrapper from '../ContentWrapper';
-import Link from 'next/link';
+import socialMediaContacts from '@/data/socialMediaContacts';
 
 function NavigationMobile(): ReactElement {
   const [isOpen, setIsOpen] = useState(false);
@@ -46,7 +47,7 @@ function NavigationMobile(): ReactElement {
             <Image src={CloseIcon} alt="Hamburger image" />
           </div>
         </nav>
-        <div className="text-base uppercase tracking-widest p-8">
+        <div className="text-base uppercase tracking-widest px-2 py-8 z-60 bg-white">
           <Link className="z-60" href="/">
             <p className="mb-8">home</p>
           </Link>
@@ -57,8 +58,17 @@ function NavigationMobile(): ReactElement {
             <p className="mb-8">work</p>
           </Link>
           <Link className="z-60" href="/contact">
-            <p>contact</p>
+            <p className="mb-8">contact</p>
           </Link>
+          <div className="grid grid-cols-5 justify-items-center w-fit gap-4 mb-10">
+            {socialMediaContacts.map(contact => (
+              <div key={contact.href} className="w-[24px] h-[24px]">
+                <a href={contact.href}>
+                  <Image alt={contact.alt} src={contact.icon} />
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>
