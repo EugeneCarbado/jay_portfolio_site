@@ -25,7 +25,7 @@ function Contact(): ReactElement {
           </p>
         </div>
         <div className="text-center">
-          <h2 className="font-krub text-center text-base font-semibold mb-10 md:text-2xl md:mb-16">
+          <h2 className="font-krub text-center text-base font-semibold mb-10 md:text-2xl md:mb-16 ">
             Contact:
           </h2>
           <p className="font-judson text-textLightGrey mb-10 underline md:text-xl md:mb-16">
