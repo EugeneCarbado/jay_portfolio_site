@@ -63,7 +63,7 @@ function NavigationMobile(): ReactElement {
           <div className="grid grid-cols-5 justify-items-center w-fit gap-4 mb-10">
             {socialMediaContacts.map(contact => (
               <div key={contact.href} className="w-[24px] h-[24px]">
-                <a href={contact.href}>
+                <a target="blank_" href={contact.href}>
                   <Image alt={contact.alt} src={contact.icon} />
                 </a>
               </div>
