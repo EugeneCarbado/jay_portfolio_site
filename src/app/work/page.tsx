@@ -16,13 +16,15 @@ function Work(): ReactElement {
     <BaseLayout>
       <Contentwrapper>
         <div className="text-center mb-20">
-          <h1 className="font-krub text-base font-semibold md:text-2xl">
+          <h1 className="font-krub text-base font-semibold md:text-2xl lg:text-4xl">
             Jay William Whittington Barrette
           </h1>
-          <p className="font-judson text-textLightGrey md:text-xl">Filmmaker</p>
+          <p className="font-judson text-textLightGrey md:text-xl lg:text-2xl">
+            Filmmaker
+          </p>
         </div>
         <div>
-          <h2 className="font-krub text-center text-base font-semibold mb-10 md:text-2xl">
+          <h2 className="font-krub text-center text-base font-semibold mb-10 md:text-2xl lg:text-4xl lg:mb-16">
             Commercials
           </h2>
           <div>

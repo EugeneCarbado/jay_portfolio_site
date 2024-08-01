@@ -6,6 +6,7 @@ import BaseLayout from '@/components/BaseLayout';
 import Contentwrapper from '@/components/ContentWrapper';
 import HeroImageMobile from '@/images/homePage/hero_image_mobile.png';
 import HeroImageTablet from '@/images/homePage/hero_image_tablet.png';
+import HeroImageDesktop from '@/images/homePage/hero_image_desktop.png';
 import SlideImageOne from '@/images/homePage/carouselImages/slide_image_one.png';
 import SlideImageTwo from '@/images/homePage/carouselImages/slide_image_two.png';
 import SlideImageThree from '@/images/homePage/carouselImages/slide_image_three.png';
@@ -37,7 +38,7 @@ export default function Home() {
   ];
 
   const isMobile = useMediaQuery('(max-width: 767px)');
-  const isTablet = useMediaQuery('(min-width: 768px)');
+  const isTablet = useMediaQuery('(min-width: 768px) and (max-width: 1023px)');
 
   const jayName = 'Jay William Whittington Barrette';
 
@@ -54,27 +55,29 @@ export default function Home() {
     <BaseLayout>
       <Contentwrapper className="flex items-center">
         <div className="text-center mb-32 md:mb-14">
-          <h1 className="font-krub text-base font-semibold md:text-2xl">
+          <h1 className="font-krub text-base font-semibold md:text-2xl lg:text-4xl">
             {jayName}
           </h1>
-          <p className="font-judson text-textLightGrey md:text-xl">Filmmaker</p>
+          <p className="font-judson text-textLightGrey md:text-xl lg:text-2xl">
+            Filmmaker
+          </p>
         </div>
-        {isMobile ? (
-          <Image className="mb-32" alt={jayName} src={HeroImageMobile} />
-        ) : isTablet ? (
-          <Image
-            className="justify-self-center mb-20"
-            alt={jayName}
-            src={HeroImageTablet}
-          />
-        ) : (
-          <Image alt={jayName} src={HeroImageTablet} />
-        )}
+        <Image
+          className="mb-32 md:justify-self-center md:mb-20"
+          alt={jayName}
+          src={
+            isMobile
+              ? HeroImageMobile
+              : isTablet
+                ? HeroImageTablet
+                : HeroImageDesktop
+          }
+        />
         <div className="mb-20 md:text-center">
-          <h2 className="font-krub text-base font-semibold md:mb-6 md:text-2xl">
+          <h2 className="font-krub text-base font-semibold md:mb-6 md:text-2xl lg:text-4xl">
             Bio
           </h2>
-          <p className="font-judson text-textLightGrey leading-5 md:text-xl md:leading-6">
+          <p className="font-judson text-textLightGrey leading-5 md:text-xl md:leading-6 lg:text-2xl">
             Jay Whittington is a cinematographer with a background in
             photography and performing arts, Canadian born, he completed his
             studies in Quebec and is based in London since 2016. Jay has
@@ -91,7 +94,7 @@ export default function Home() {
             ))}
           </Slider>
         )}
-        {isTablet && (
+        {!isMobile && (
           <div className="grid grid-rows-2 grid-cols-2 gap-4 mb-20">
             {homeTabletImages.map(image => (
               <Image key={image.alt} alt={image.alt} src={image.image} />

@@ -3,6 +3,8 @@ import {ReactElement, ReactNode} from 'react';
 
 import NavigationMobile from '../NavigationMobile';
 import Contentwrapper from '../ContentWrapper';
+import useMediaQuery from '@/utils/mediaQuery';
+import NavigationTabletDesktop from '../NavigationTabletDesktop';
 
 interface IBaseLayout {
   children: ReactNode;
@@ -10,10 +12,12 @@ interface IBaseLayout {
 }
 
 function BaseLayout({children, className}: IBaseLayout): ReactElement {
+  const isMobile = useMediaQuery('(max-width: 767px)');
+
   return (
     <main className={`${className}`}>
       <section>
-        <NavigationMobile />
+        {isMobile ? <NavigationMobile /> : <NavigationTabletDesktop />}
       </section>
       <section>{children}</section>
       <footer className="bg-black text-white py-6">

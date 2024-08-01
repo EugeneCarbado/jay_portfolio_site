@@ -12,16 +12,17 @@ import useMediaQuery from '@/utils/mediaQuery';
 
 function Contact(): ReactElement {
   const isMobile = useMediaQuery('(max-width: 767px)');
-  const isTablet = useMediaQuery('(min-width: 768px)');
 
   return (
     <BaseLayout>
       <Contentwrapper>
         <div className="text-center mb-20">
-          <h1 className="font-krub text-base font-semibold md:text-2xl">
+          <h1 className="font-krub text-base font-semibold md:text-2xl lg:text-4xl">
             Jay William Whittington Barrette
           </h1>
-          <p className="font-judson text-textLightGrey md:text-xl">Filmmaker</p>
+          <p className="font-judson text-textLightGrey md:text-xl lg:text-2xl">
+            Filmmaker
+          </p>
         </div>
         <div className="text-center">
           <h2 className="font-krub text-center text-base font-semibold mb-10 md:text-2xl md:mb-16">
@@ -50,20 +51,11 @@ function Contact(): ReactElement {
               </div>
             ))}
           </div>
-          {isMobile && (
-            <Image
-              className="mb-20"
-              alt="Jay William Whittington Barrette"
-              src={ContactImageMobile}
-            />
-          )}
-          {isTablet && (
-            <Image
-              alt="Jay William Whittington Barrette"
-              src={ContactImageTablet}
-              className="mx-auto mb-20"
-            />
-          )}
+          <Image
+            className="mb-20 mx-auto"
+            alt="Jay William Whittington Barrette"
+            src={isMobile ? ContactImageMobile : ContactImageTablet}
+          />
         </div>
       </Contentwrapper>
     </BaseLayout>
